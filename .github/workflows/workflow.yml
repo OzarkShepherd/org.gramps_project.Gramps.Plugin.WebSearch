@@ -23,7 +23,7 @@ jobs:
       run: |
         flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
         flatpak install flathub org.gnome.Platform//49 org.gnome.Sdk//49 -y
-        curl -O https://github.com/OzarkShepherd/flatpak/actions/runs/19198151134/artifacts/4508947569
+        curl -O https://github.com/OzarkShepherd/flatpak/releases/download/plugintest/gramps.flatpak
         flatpak install gramps.flatpak
 
     - name: BuildFlatpak
