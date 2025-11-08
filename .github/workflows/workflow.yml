@@ -23,15 +23,10 @@ jobs:
       run: |
         flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
         flatpak install flathub org.gnome.Platform//49 org.gnome.Sdk//49 -y
-
-    - name: DownloadGramps
-      uses: actions/download-artifact@v4
-      with:
-        repository: OzarkShepherd/flatpak
-        path: /releases/download/plugintest/gramps.flatpak
-
+        
     - name: InstallGramps    
       run: |
+        curl -LJO https://github.com/OzarkShepherd/flatpak/releases/download/plugintest/gramps.flatpak
         flatpak install gramps.flatpak
 
     - name: BuildFlatpak
