@@ -23,7 +23,13 @@ jobs:
       run: |
         flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
         flatpak install flathub org.gnome.Platform//49 org.gnome.Sdk//49 -y
-        curl -O https://github.com/OzarkShepherd/flatpak/releases/download/plugintest/gramps.flatpak
+
+      name: InstallGramps
+      uses: actions/download-artifact@v4
+      with:
+        repository: OzarkShepherd/flatpak
+        path: /releases/download/plugintest/gramps.flatpak
+      run: |
         flatpak install gramps.flatpak
 
     - name: BuildFlatpak
@@ -32,7 +38,7 @@ jobs:
 
     - name: BuildBundle
       run: |
-        flatpak build-bundle repo gramps.flatpak org.gramps_project.Gramps.Plugin.WebSearch.yml
+        flatpak build-bundle repo gramps.WebSearch.flatpak org.gramps_project.Gramps.Plugin.WebSearch.yml
 
     - name: UploadBundle
       uses: actions/upload-artifact@main
