@@ -3,7 +3,7 @@ name: CreateFlatpak
 on:
   pull_request:
     paths:
-      - 'org.gramps_project.Gramps.yml'
+      - 'org.gramps_project.Gramps.Plugin.WebSearch.yml'
   workflow_dispatch:
 
 jobs:
