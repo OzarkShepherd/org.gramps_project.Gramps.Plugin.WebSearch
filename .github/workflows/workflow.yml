@@ -26,11 +26,11 @@ jobs:
 
     - name: BuildFlatpak
       run: |
-        flatpak-builder --repo=repo --force-clean build-dir org.gramps_project.Gramps.Plugins.WebSearch.yml
+        flatpak-builder --repo=repo --force-clean build-dir org.gramps_project.Gramps.Plugin.WebSearch.yml
 
     - name: BuildBundle
       run: |
-        flatpak build-bundle repo gramps.flatpak org.gramps_project.Gramps.Plugins.WebSearch.yml
+        flatpak build-bundle repo gramps.flatpak org.gramps_project.Gramps.Plugin.WebSearch.yml
 
     - name: UploadBundle
       uses: actions/upload-artifact@main
