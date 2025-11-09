@@ -28,7 +28,7 @@ jobs:
         
     - name: DownloadGramps
       run: |
-        curl -L -o gramps.flatpak https://github.com/OzarkShepherd/flatpak/releases/download/plugintest2
+        curl -L -o gramps.flatpak https://github.com/OzarkShepherd/flatpak/releases/download/plugintest2/gramps.flatpak
 
     - name: InstallGramps
       run: |
