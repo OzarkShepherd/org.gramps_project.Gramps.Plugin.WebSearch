@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@main
+    - name: Checkout
+      uses: actions/checkout@v4
+      
     - name: InstallFlatpak
       run: |
         sudo add-apt-repository ppa:flatpak/stable
@@ -24,10 +26,13 @@ jobs:
         flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
         flatpak install flathub org.gnome.Platform//49 org.gnome.Sdk//49 -y
         
-    - name: InstallGramps    
+    - name: DownloadGramps
       run: |
-        sudo curl -LJO https://github.com/OzarkShepherd/flatpak/releases/download/plugintest/gramps.flatpak
-        flatpak install gramps.flatpak
+        curl -L -o gramps.flatpak https://github.com/OzarkShepherd/flatpak/releases/download/plugintest/gramps.flatpak
+
+    - name: InstallGramps
+      run: |
+        flatpak install --user -y gramps.flatpak
 
     - name: BuildFlatpak
       run: |
