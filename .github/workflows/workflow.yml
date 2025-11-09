@@ -26,7 +26,7 @@ jobs:
         
     - name: InstallGramps    
       run: |
-        curl -LJO https://github.com/OzarkShepherd/flatpak/releases/download/plugintest/gramps.flatpak
+        sudo curl -LJO https://github.com/OzarkShepherd/flatpak/releases/download/plugintest/gramps.flatpak
         flatpak install gramps.flatpak
 
     - name: BuildFlatpak
