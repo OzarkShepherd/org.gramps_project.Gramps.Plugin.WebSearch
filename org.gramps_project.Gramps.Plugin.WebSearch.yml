@@ -5,10 +5,10 @@ sdk: org.gnome.Sdk//49
 build-extension: true
 separate-locales: false
 build-options:
-  prefix: /app/plugins/WebSearch
-  prepend-path: /app/plugins/WebSearch/bin
-  prepend-pkg-config-path: /app/plugins/WebSearch/lib/pkgconfig
-  prepend-ld-library-path: /app/plugins/WebSearch/lib
+  prefix: /app/share/plugins/WebSearch
+  prepend-path: /app/share/plugins/WebSearch/bin
+  prepend-pkg-config-path: /app/share/plugins/WebSearch/lib/pkgconfig
+  prepend-ld-library-path: /app/share/plugins/WebSearch/lib
 cleanup:
   - '*.a'
   - '*.la'
