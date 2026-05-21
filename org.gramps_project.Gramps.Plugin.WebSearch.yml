@@ -1,14 +1,14 @@
-app-id: org.gramps_project.Gramps.Plugin.WebSearch
-runtime: org.gramps_project.Gramps
-runtime-version: master
+app-id: org.gramps_project.Gramps.Extension.OpenAI
+runtime: org.gnome.Platform
+runtime-version: 49
 sdk: org.gnome.Sdk//49
 build-extension: true
 separate-locales: false
-build-options:
-  prefix: /share/plugins/WebSearch
-  prepend-path: /share/plugins/WebSearch/bin
-  prepend-pkg-config-path: /share/plugins/WebSearch/lib/pkgconfig
-  prepend-ld-library-path: /share/plugins/WebSearch/lib
+# build-options:
+#  prefix: /share/plugins/WebSearch
+#  prepend-path: /share/plugins/WebSearch/bin
+#  prepend-pkg-config-path: /share/plugins/WebSearch/lib/pkgconfig
+#  prepend-ld-library-path: /share/plugins/WebSearch/lib
 cleanup:
   - '*.a'
   - '*.la'
@@ -19,12 +19,5 @@ cleanup:
   - /share/gir-1.0
   - /share/man
 modules:
-# openai-python to add option of using openai in WebSearch, most recent version as of 2025.11 is from 2025.11
-  - name: openai-python
-    buildsystem: simple
-    build-commands:
-      - pip3 install --no-deps openai*.whl
-    sources:
-      - type: file
-        url:  https://files.pythonhosted.org/packages/8c/74/6bfc3adc81f6c2cea4439f2a734c40e3a420703bbcdc539890096a732bbd/openai-2.7.1-py3-none-any.whl
-        sha256:   2f2530354d94c59c614645a4662b9dab0a5b881c5cd767a8587398feac0c9021 
+# openai-python and dependencies
+  - DepsOpenAI.yml
